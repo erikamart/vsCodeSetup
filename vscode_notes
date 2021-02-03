@@ -1,0 +1,153 @@
+MacOS VScode doesn't play well with conda environments. See the following docs:
+https://code.visualstudio.com/docs/python/environments
+To Create a new conda environment on Mac, you have to specify the interpreter or 
+VsCode will not recognize it, i.e.:
+~$ conda create -n <env_name> python=3.8
+
+Continuing from video: https://www.youtube.com/watch?v=06I63_p-2A4
+
+To format python code you need to highlight the code and select on keyboard:
+"Shift + Option + F"
+
+To sort your imports, open the command palette and type "sort". You wll see:
+"Python Refractor: Sort Imports"
+Choose that and you will see your imports sorted. An added space will be useed
+to separate 3rd party packages. You can also right-click and select "Sort Imports".
+
+min 38:00- Enable linting. If you don't get the pop-up in the window, you can make it 
+appear by bringing up command palette and then typing "linting". Select "Python: Run 
+Linting". In the pop-up select "install". Test it by putting something that will 
+trigger it. Use a python2 print statement by removing (). You should see a red 
+underline under "print" and when you hover your mouse it will tell you the error. You 
+can also click on the "PROBLEMS" tab in the below terminal and it will also tell you 
+the error there. Test again by putting in the def "test = "Test". The linter should 
+warn that you have an unused variable. If you can't see the warnings you might need to 
+add the same to the user and workspace settings:
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+
+min 40:45- Install Code Runner extension. Make the code run in using the correct python 
+interpreter. MacOS, by default, uses the default python2 it comes with. Change your 
+global user settings for code runner. Add the following:
+"code-runner.executorMap": {
+        "python": "$pythonPath -u $fullFileName"
+    },
+
+min 45:14- Make the output only show results and no other added info:
+"code-runner.showExecutionMessage": false,
+
+To clear out the old output and only show the new output:
+"code-runner.clearPreviousOutput": true,
+
+Test the settings by clicking the Triangle button on the top right of the window to 
+"run" the code. You will see a simple output appear in the OUTPUT tab at the bottom 
+of the window. If you want to use the keyboard shortcut to do the same:
+CNTRL + OPTION + N 
+
+min 47:10- How to run input type code in code runner. Remove (or comment out) all 
+the code below the imports in your test file. Do the code changes seen after the 
+time stamp of min 47:55. Then right-click and select "Run Python File in Terminal". 
+Type in the terminal as needed and see the output.
+
+min 48:57- Comment out this code and go back to the code before min 47:50. Lets look 
+at built-in Git integration in vscode. Click on the source control icon on the left 
+activity bar. It should be blank. Click the git icon at the top to initialize 
+repository. It will show you a menu to choose the project to track. Click this project 
+folder. It starts to track and will show you all the files that it wants to stage for 
+commit. There's some extra files from the virtual environment in there that should not be 
+tracked. It's not advisable to track virtual environments. Create a .gitignore file and 
+add the virtual environment folder to it. Go to the file list (click the topmost icon in 
+the left sidebar). Use the icons to create a new file and call it ".gitignore". Within the 
+file, add the name of your virtual environment and the .vscode folder names. When you save 
+the file you will see vscode stop labeling the folders and their subfiles for tracking 
+with git. They get filtered out.
+
+min 51:59- Go back to the Git section (left activity bar) to view the files for staging & 
+committing. If you are sure that you want to stage all the files it has marked for staging, 
+you can use the top right three dots (...). Click them, click "Changes", click "Stage All 
+Changes". Then use the checkmark icon to commit the staged files. It will prompt you to 
+type your commit message; hit enter when done. Now it will only show you changes you've 
+made since your last commit. If you go and change your code, you will see red 
+dots/indicators appear near the areas of change in the file. If you click them, git will 
+show you the changes made. If you click back into the git section, it will split the screen 
+to show the diff side-by-side. The left is the commited file and the right is the current 
+file. If all the changes are what you want, click the plus icon to stage the file and use 
+the checkmark to commit. Type the commit message to declare the changes you made.
+
+min 54:34- Commit up to github. Create a repo within the browser and set it up to push to 
+that repo. Once created, github will give you the commands to "push an existing repository 
+from the command line". Copy the line "git remote add origin 
+https://github.com/username/repo.git" (your link will have your specific username & repo!)
+Use your vscode terminal with CNTRL + ~ to paste the github command into. That connects
+the local git project to the remote reposotory. Go back to the git section and click in
+the top right of the source control section (the 3 dots ...) and select "Pull, Push",
+click "Push to", select from the menu option for "origin....". It will ask if you want to
+periodically run "git fetch". Just say to ask later. Now go back to your browser and you 
+should see your local code there. For subsequent changes you would just "Push" them.
+
+min 58:15- How to do basic debugging in python. Open the file "script.py". Using break 
+-points. Hover within the left-hand gutter of your code file and you will see a red dot 
+appear. Click it to add a breakpoint at line 21. Click on the debug icon on the far 
+left activity menu to start the debugger. You will need to select a debug application. 
+Click the down arrow seen in the top menu area and select "Add Configuration". From the 
+appearing menu, select "Python File" to create some configurations for you. The file 
+created will be called "launch.json". Close it for now. Now click the green triangle to
+run the debugger. You will see the window change and show that it stopped at the break
+-point you made earlier. You can see the current local values in the variables section.
+Below that is a a watch section where you can add a statement to watch. Add "r.status_
+code" to it. For something more interactive you can use the "DEBUG CONSOLE" tab within
+the terminal at the bottom of the window.
+
+min 1:00:50- In the debug console. Type "r" + enter. You will see the response and are
+able to expand the response to dig deeper into it. Now type "r.ok", then try "r.url".
+This will show current values and avoids using print and log statements while coding.
+When you reach the breakpoint, you can use the options to continue on, step over, step
+into, step out, restart, or stop. You can remove the breakpoint by clicking on it.
+
+min 1:02:37- Unit Testing Support that's built-in. Open a different project called 
+"Python-Unit-Testing" that has a sample of unit tests. Download the project with
+DownGit. Link--> https://downgit.github.io/#/home
+Copy this project link into the above website and click "Download"--> 
+https://github.com/CoreyMSchafer/code_snippets/tree/master/Python-Unit-Testing
+Unzip the file and you will have your new project folder for unit testing.
+You can do this using your regular computer terminal. Navigate to
+the location of your project folder and type in terminal: ~$ code Python-Unit-Testing/
+If the result is command not found, you can install the code package via VScode. Open
+the app, open the command palette, type shell, select "Shell Command: Install 
+'code' command in PATH". That will fix the issue. Try again.
+
+min 1:04:38- Sample unit test are "test_calc.py" & "test_employee.py". You want to
+open the command palette, type Discover, select "Python: Discover Tests". A pop-up
+will appear. Click on "Enable and configure a Test Framework". You will then be asked 
+what unit test framework you want to use. These project tests are written in unittest.
+So click "unittest", click ".Root directory", select what the file name pattern will 
+be to identify the test files. These files will use the pattern, "test_*.py". The test
+files should now be discovered by VScode and will add a few lines to the files to
+"Run Tests | Debug Test". If you don't see the changes in the files, then close out and
+open the window up again.
+
+min 1:06:40- Close and reopen the test files. You now have the option to run a single
+test or run the entire class of tests. If you click to run a test you will see a checkmark
+appear that it ran and passed. Change a test so that it fails. On line 8 of test_calc.py
+change the 15 to 10 and run the test. You will see the checkmark icon change to a warning
+icon. Click the "Warning" symbol at the bottom of the window and you will see options 
+appear to run tests in different ways. Try looking at the unit test output. It will show
+what test failed and say why. In this case it is because 15 =! 10. We can fix it and rerun.
+
+min 1:09:05- There is an additional tab in the left-hand activity bar. It is a testing
+tab.Since you reran the test after fixing it, you should see the tests passing here.
+Fail the test again to see the changes. It will show the fail. If you fix it and rerun,
+all tests pass again. You can also rerun all tests by pressing the icon at the top of the
+results area of the tab.
+
+min 1:10:44- Other settings for changing how the editor looks in zen mode. Settings are
+available at the following link --> 
+https://github.com/CoreyMSchafer/dotfiles/blob/master/settings/VSCode-Settings.json
+To open zen mode, open the command palette, type zen, select "View: Toggle Zen Mode".
+You will see a lot less distractions and just the code. If you run tests it will be clean
+too.
+
+min 1:14:01- Keyboard shortcuts. Open command palette and type "keyboard". Find the
+option for "Help: Keyboard Shortcuts Reference" and select it. You will see an online pdf
+with all the shortcuts available to learn. There will be another video made for that at
+another time.
