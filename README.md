@@ -1,4 +1,5 @@
 # Visual Studio Code (Mac OS & Windows) - Setting up a Python Development Environment and Complete Overview
+
 ![VScode](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Visual_Studio_Code_0.10.1_icon.png/64px-Visual_Studio_Code_0.10.1_icon.png)  ![plus](https://s3.amazonaws.com/habitica-assets/cdn/emoji/heavy_plus_sign.png)  ![python](https://img.icons8.com/color/72/python.png)
 
 These are the files created while following tutorials, by Corey Schafer, on how to set up VS Code for Mac OS and Windows respectively. Links to the tutorials:
