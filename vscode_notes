@@ -1,17 +1,17 @@
-MacOS VScode doesn't play well with conda environments. See the following docs:
+MacOS VS Code doesn't play well with Conda environments. See the following docs:
 https://code.visualstudio.com/docs/python/environments
-To Create a new conda environment on Mac, you have to specify the interpreter or 
-VsCode will not recognize it, i.e.:
-~$ conda create -n <env_name> python=3.8
+To Create a new Conda environment on Mac, you have to specify the interpreter or 
+VS Code will not recognize it, i.e.:
+~$ conda create -n <env_name> python=3.8.3
 
 Continuing from video: https://www.youtube.com/watch?v=06I63_p-2A4
 
 To format python code you need to highlight the code and select on keyboard:
 "Shift + Option + F"
 
-To sort your imports, open the command palette and type "sort". You wll see:
+To sort your imports, open the command palette and type "sort". You will see:
 "Python Refractor: Sort Imports"
-Choose that and you will see your imports sorted. An added space will be useed
+Choose that and you will see your imports sorted. An added space will be used
 to separate 3rd party packages. You can also right-click and select "Sort Imports".
 
 min 38:00- Enable linting. If you don't get the pop-up in the window, you can make it 
@@ -50,7 +50,7 @@ time stamp of min 47:55. Then right-click and select "Run Python File in Termina
 Type in the terminal as needed and see the output.
 
 min 48:57- Comment out this code and go back to the code before min 47:50. Lets look 
-at built-in Git integration in vscode. Click on the source control icon on the left 
+at built-in Git integration in VS Code. Click on the source control icon on the left 
 activity bar. It should be blank. Click the git icon at the top to initialize 
 repository. It will show you a menu to choose the project to track. Click this project 
 folder. It starts to track and will show you all the files that it wants to stage for 
@@ -58,8 +58,8 @@ commit. There's some extra files from the virtual environment in there that shou
 tracked. It's not advisable to track virtual environments. Create a .gitignore file and 
 add the virtual environment folder to it. Go to the file list (click the topmost icon in 
 the left sidebar). Use the icons to create a new file and call it ".gitignore". Within the 
-file, add the name of your virtual environment and the .vscode folder names. When you save 
-the file you will see vscode stop labeling the folders and their subfiles for tracking 
+file, add the name of your virtual environment and the ".vscode" folder names. When you save 
+the file, you will see VS Code stop labeling the folders and their subfiles for tracking 
 with git. They get filtered out.
 
 min 51:59- Go back to the Git section (left activity bar) to view the files for staging & 
@@ -70,7 +70,7 @@ type your commit message; hit enter when done. Now it will only show you changes
 made since your last commit. If you go and change your code, you will see red 
 dots/indicators appear near the areas of change in the file. If you click them, git will 
 show you the changes made. If you click back into the git section, it will split the screen 
-to show the diff side-by-side. The left is the commited file and the right is the current 
+to show the diff side-by-side. The left is the committed file and the right is the current 
 file. If all the changes are what you want, click the plus icon to stage the file and use 
 the checkmark to commit. Type the commit message to declare the changes you made.
 
@@ -78,8 +78,8 @@ min 54:34- Commit up to github. Create a repo within the browser and set it up t
 that repo. Once created, github will give you the commands to "push an existing repository 
 from the command line". Copy the line "git remote add origin 
 https://github.com/username/repo.git" (your link will have your specific username & repo!)
-Use your vscode terminal with CNTRL + ~ to paste the github command into. That connects
-the local git project to the remote reposotory. Go back to the git section and click in
+Use your VS Code terminal with CNTRL + ~ to paste the github command into. That connects
+the local git project to the remote repository. Go back to the git section and click in
 the top right of the source control section (the 3 dots ...) and select "Pull, Push",
 click "Push to", select from the menu option for "origin....". It will ask if you want to
 periodically run "git fetch". Just say to ask later. Now go back to your browser and you 
@@ -112,17 +112,17 @@ https://github.com/CoreyMSchafer/code_snippets/tree/master/Python-Unit-Testing
 Unzip the file and you will have your new project folder for unit testing.
 You can do this using your regular computer terminal. Navigate to
 the location of your project folder and type in terminal: ~$ code Python-Unit-Testing/
-If the result is command not found, you can install the code package via VScode. Open
+If the result is command not found, you can install the code package via VS Code. Open
 the app, open the command palette, type shell, select "Shell Command: Install 
 'code' command in PATH". That will fix the issue. Try again.
 
 min 1:04:38- Sample unit test are "test_calc.py" & "test_employee.py". You want to
 open the command palette, type Discover, select "Python: Discover Tests". A pop-up
 will appear. Click on "Enable and configure a Test Framework". You will then be asked 
-what unit test framework you want to use. These project tests are written in unittest.
-So click "unittest", click ".Root directory", select what the file name pattern will 
+what unit test framework you want to use. These project tests are written in unit-test.
+So click "unit-test", click ".Root directory", select what the file name pattern will 
 be to identify the test files. These files will use the pattern, "test_*.py". The test
-files should now be discovered by VScode and will add a few lines to the files to
+files should now be discovered by VS Code and will add a few lines to the files to
 "Run Tests | Debug Test". If you don't see the changes in the files, then close out and
 open the window up again.
 
